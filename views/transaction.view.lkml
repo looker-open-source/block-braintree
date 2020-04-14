@@ -137,6 +137,7 @@ view: transaction_core {
 
   dimension: id {
     type: number
+    label: "Transaction ID"
     sql: ${TABLE}.id ;;
     primary_key: yes
     description: "The shipping details ID. A customer Vault record can contain up to 50 shipping and billing addresses, each with a unique ID."
@@ -344,6 +345,7 @@ view: transaction_core {
       month,
       quarter,
       day_of_month,
+      month_num,
       year,
       fiscal_month_num,
       fiscal_quarter,
@@ -425,7 +427,7 @@ view: transaction_core {
   measure: count {
     type: count
     label: "Number of Transactions"
-    drill_fields: [id, customer_id, created_date, amount]
+    drill_fields: [detail*]
     value_format_name: decimal_0
   }
 
@@ -449,7 +451,7 @@ view: transaction_core {
 
   measure: total_amount {
     type: sum
-    drill_fields: [id, customer_id, created_date, amount]
+    drill_fields: [detail*]
     sql: ${amount} ;;
     value_format_name: usd
   }
@@ -468,7 +470,7 @@ view: transaction_core {
 
   measure: average_amount {
     label: "Average Transaction"
-    drill_fields: [id, customer_id, created_date, amount]
+    drill_fields: [detail*]
     type: average
     sql: ${amount} ;;
     value_format_name: usd
@@ -489,30 +491,12 @@ view: transaction_core {
   set: detail {
     fields: [
       id,
-      shipping_address_country_name,
-      billing_address_country_name,
-      shipping_address_first_name,
-      shipping_address_last_name,
-      billing_address_first_name,
-      billing_address_last_name,
-      subscription.id,
-      merchant_account.address_last_name,
-      merchant_account.address_first_name,
-      merchant_account.last_name,
-      merchant_account.address_country_name,
       merchant_account.id,
-      merchant_account.first_name,
-      unregistered_customer.count,
-      android_pay_details.count,
-      apple_pay_card.count,
-      masterpass_card_details.count,
-      transaction_status_history.count,
-      credit_card.count,
-      paypal_details.count,
-      dispute.count,
-      visa_checkout_details.count,
-      transaction_add_on.count,
-      venmo_details.count
+      customer_id,
+      payment_instrument_type,
+      created_date,
+      updated_date,
+      total_amount
     ]
   }
 }
