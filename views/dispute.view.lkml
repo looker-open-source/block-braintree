@@ -44,7 +44,7 @@ view: dispute_core {
     description: "The reason the dispute was created. "
   }
 
-  dimension: reason_label {
+  dimension: reason_display {
     type: string
     sql:
     CASE WHEN ${reason} = "cancelled_recurring_transaction" THEN "Canceled Recurring Transaction"
@@ -142,9 +142,9 @@ view: dispute_ndt {
   derived_table: {
     explore_source: transaction {
       column: count { field: dispute.count }
-      column: reason_label { field: dispute.reason_label }
+      column: reason_label { field: dispute.reason_display }
       filters: {
-        field: dispute.reason_label
+        field: dispute.reason_display
         value: "-NULL"
       }
     }
@@ -154,5 +154,5 @@ view: dispute_ndt {
     label: "Dispute Number of Disputes"
     type: number
   }
-  dimension: reason_label {hidden:yes}
+  dimension: reason_display {hidden:yes}
 }

@@ -22,7 +22,7 @@ explore: transaction_core {
     relationship: one_to_one
   }
   join: dispute_ndt {
-    sql_on: ${dispute.reason_label} = ${dispute_ndt.reason_label} ;;
+    sql_on: ${dispute.reason_display} = ${dispute_ndt.reason_display} ;;
     relationship: one_to_one
   }
   join: transaction_status_history {
