@@ -452,6 +452,13 @@ view: transaction_core {
     sql: ${status} IN ("SettlementDeclined","GatewayRejected","AuthorizationExpired","ProcessorDeclined","Failed") ;;
   }
 
+  dimension: amount_formatted {
+    type: number
+    hidden: yes
+    sql: CASE WHEN ${type} = 'credit' THEN (-1 * ${amount}) ELSE ${amount} END;;
+    value_format_name: usd
+  }
+
   measure: count {
     type: count
     label: "Number of Transactions"
@@ -487,7 +494,7 @@ view: transaction_core {
   measure: total_amount_formatted {
     type: sum
     drill_fields: [detail*]
-    sql: CASE WHEN ${type} = 'credit' THEN (-1*${}${amount}) ELSE ${amount};;
+    sql: ${amount_formatted};;
     value_format_name: usd
   }
 

@@ -452,8 +452,8 @@
     explore: transaction
     type: looker_grid
     fields: [transaction.id, transaction.status, transaction.type, transaction.created_date,
-      transaction.total_amount, transaction.total_tax, transaction.total_service_fee,
-      transaction_add_on.total_add_on_amount, transaction.tender_display]
+      transaction.tender_display, transaction.total_amount_formatted, transaction.total_tax,
+      transaction.total_service_fee, transaction_add_on.total_add_on_amount]
     sorts: [transaction.created_date desc]
     limit: 500
     column_limit: 50
@@ -475,6 +475,8 @@
     show_sql_query_menu_options: false
     show_totals: true
     show_row_totals: true
+    series_labels:
+      transaction.total_amount_formatted: Total Amount
     series_cell_visualizations:
       transaction.total_amount:
         is_active: true
@@ -504,6 +506,14 @@
         is_active: true
         palette:
           palette_id: 5994f1d1-00b6-6c6b-d6f2-a11f8a6f82b8
+          collection_id: legacy
+          custom_colors:
+          - "#ffffff"
+          - "#0092e5"
+      transaction.total_amount_formatted:
+        is_active: true
+        palette:
+          palette_id: 0ae65167-f192-2ca6-1d67-cdcc1f19dde7
           collection_id: legacy
           custom_colors:
           - "#ffffff"
