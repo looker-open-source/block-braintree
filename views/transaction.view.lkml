@@ -354,6 +354,29 @@ view: transaction_core {
     ]
   }
 
+  dimension: month_linker {
+    label: "Created Month"
+    description: "This helper dimension provides contextual links to other dashboards."
+    type: string
+    sql: ${created_month} ;;
+    link: {
+      label: "Drill into these Transactions"
+      url: "/dashboards/708?Date={{value | replace '-', '/'}} for 1 months"
+    }
+    link: {
+      label: "Drill into Declines from this Month"
+      url: "/dashboards/716?Date={{value | replace '-', '/'}} for 1 months"
+    }
+    link: {
+      label: "Drill into Disputes from this Month"
+      url: "/dashboards/715?Date={{value | replace '-', '/'}} for 1 months"
+    }
+    link: {
+      label: "Drill into At Risk Payments from this Month"
+      url: "/dashboards/716?Date={{value | replace '-', '/'}} for 1 months"
+    }
+  }
+
   dimension_group: updated {
     type: time
     sql: ${TABLE}.updated_at ;;
