@@ -25,7 +25,8 @@ view: dispute_core {
   dimension_group: opened {
     type: time
     sql: PARSE_TIMESTAMP("%F", ${TABLE}.opened_date) ;;
-    timeframes: [raw,
+    timeframes: [
+      raw,
       date,
       week,
       week_of_year,
@@ -35,7 +36,8 @@ view: dispute_core {
       fiscal_month_num,
       fiscal_quarter,
       fiscal_quarter_of_year,
-      fiscal_year]
+      fiscal_year
+    ]
   }
 
   dimension: reason {
@@ -64,7 +66,8 @@ view: dispute_core {
   dimension_group: received {
     type: time
     sql: ${TABLE}.received_date ;;
-    timeframes: [raw,
+    timeframes: [
+      raw,
       date,
       week,
       month,
@@ -73,7 +76,8 @@ view: dispute_core {
       fiscal_month_num,
       fiscal_quarter,
       fiscal_quarter_of_year,
-      fiscal_year]
+      fiscal_year
+    ]
     description: "The date the dispute was received by the merchant."
   }
 
@@ -121,11 +125,13 @@ view: dispute_core {
     type: sum
     sql: ${amount} ;;
     value_format_name: usd
+    drill_fields: [detail*]
   }
 
   # ----- Sets of fields for drilling ------
   set: detail {
     fields: [
+      transaction.id,
       transaction.shipping_address_country_name,
       transaction.billing_address_country_name,
       transaction.shipping_address_first_name,
@@ -154,5 +160,5 @@ view: dispute_ndt {
     label: "Dispute Number of Disputes"
     type: number
   }
-  dimension: reason_display {hidden:yes}
+  dimension: reason_display { hidden:yes }
 }

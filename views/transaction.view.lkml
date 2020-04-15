@@ -9,7 +9,6 @@ view: transaction {
 
 view: transaction_core {
   sql_table_name: @{DATASET_NAME}.TRANSACTION ;;
-  drill_fields: [refunded_transaction_id]
 
   dimension: refunded_transaction_id {
     type: number
@@ -100,7 +99,11 @@ view: transaction_core {
   dimension_group: disbursement_date {
     group_label: "Disbursement"
     type: time
-    timeframes: [raw, date, month]
+    timeframes: [
+      raw,
+      date,
+      month
+    ]
     sql: PARSE_TIMESTAMP("%F", ${TABLE}.disbursement_date) ;;
     description: "The date that the funds associated with this transaction were disbursed. This attribute is only available if you have an eligible merchant account."
   }
@@ -336,7 +339,8 @@ view: transaction_core {
   dimension_group: created {
     type: time
     sql: ${TABLE}.created_at ;;
-    timeframes: [raw,
+    timeframes: [
+      raw,
       day_of_week,
       hour_of_day,
       date,
@@ -354,7 +358,8 @@ view: transaction_core {
     ]
   }
 
-  dimension_group: updated {
+
+ dimension_group: updated {
     type: time
     sql: ${TABLE}.updated_at ;;
     timeframes: [
@@ -367,7 +372,8 @@ view: transaction_core {
       fiscal_month_num,
       fiscal_quarter,
       fiscal_quarter_of_year,
-      fiscal_year]
+      fiscal_year
+    ]
   }
 
   dimension_group: today {
@@ -406,7 +412,7 @@ view: transaction_core {
   dimension: tender_display {
     type: string
     sql: CASE
-          WHEN ${transaction.payment_instrument_type} = "credit_card" THEN 'Credit Card'
+           WHEN ${transaction.payment_instrument_type} = "credit_card" THEN 'Credit Card'
            WHEN ${transaction.payment_instrument_type} = "masterpass_card" THEN 'MasterPass card'
            WHEN ${transaction.payment_instrument_type} = "paypal_here" THEN 'Paypal'
            WHEN ${transaction.payment_instrument_type} = "paypal_account" THEN 'Paypal'
@@ -435,8 +441,8 @@ view: transaction_core {
     type: count
     group_label: "Declined Transactions"
     label: "Number of Declines"
-    drill_fields: [detail*]
     value_format_name: decimal_0
+    drill_fields: [detail*]
     filters: {
       field: denied
       value: "yes"
@@ -451,9 +457,9 @@ view: transaction_core {
 
   measure: total_amount {
     type: sum
-    drill_fields: [detail*]
     sql: ${amount} ;;
     value_format_name: usd
+    drill_fields: [detail*]
   }
 
   measure: amount_of_decline {
@@ -466,26 +472,29 @@ view: transaction_core {
       field: denied
       value: "yes"
     }
+    drill_fields: [detail*]
   }
 
   measure: average_amount {
     label: "Average Transaction"
-    drill_fields: [detail*]
     type: average
     sql: ${amount} ;;
     value_format_name: usd
+    drill_fields: [detail*]
   }
 
   measure: cumulative_total {
     type: running_total
     sql: ${total_amount} ;;
     value_format_name: usd
+    drill_fields: [detail*]
   }
 
   measure: total_service_fee {
     type: sum
     sql: ${service_fee_amount} ;;
     value_format_name: usd
+    drill_fields: [detail*]
   }
 
   set: detail {
@@ -494,6 +503,7 @@ view: transaction_core {
       merchant_account.id,
       customer_id,
       payment_instrument_type,
+      status,
       created_date,
       updated_date,
       total_amount

@@ -109,7 +109,12 @@ view: subscription_core {
 
   dimension_group: next_billing {
     type: time
-    timeframes: [raw, date, month, year]
+    timeframes: [
+      raw,
+      date,
+      month,
+      year
+    ]
     sql: PARSE_TIMESTAMP("%F",${TABLE}.next_billing_date);;
     description: "The date that the gateway will try to bill the subscription again. The gateway adjusts this date each time it tries to charge the subscription. If the subscription is past due and you have set your processing options to automatically retry failed transactions, the gateway will continue to adjust this date, advancing it based on the settings that you configured in advanced settings."
   }
@@ -130,7 +135,12 @@ view: subscription_core {
 
   dimension_group: paid_through {
     type: time
-    timeframes: [raw, date, month, year]
+    timeframes: [
+      raw,
+      date,
+      month,
+      year
+    ]
     sql: PARSE_TIMESTAMP("%F", ${TABLE}.paid_through_date) ;;
     description: "The date through which the subscription has been paid. It is the billing_period_end_date at the time of the last successful transaction. If the subscription is pending (has a future start date), this field is nil."
   }
@@ -209,16 +219,12 @@ view: subscription_core {
   set: detail {
     fields: [
       id,
-      merchant_account.address_last_name,
-      merchant_account.address_first_name,
-      merchant_account.last_name,
-      merchant_account.address_country_name,
       merchant_account.id,
-      merchant_account.first_name,
       subscription_discount.count,
       subscription_status_history.count,
       subscription_add_on.count,
-      transaction.count
+      transaction.count,
+      total_balance
     ]
   }
 }
