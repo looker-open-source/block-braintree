@@ -148,7 +148,7 @@ view: dispute_ndt {
   derived_table: {
     explore_source: transaction {
       column: count { field: dispute.count }
-      column: reason_label { field: dispute.reason_display }
+      column: reason_display { field: dispute.reason_display }
       filters: {
         field: dispute.reason_display
         value: "-NULL"
