@@ -97,6 +97,11 @@ view: transaction_core {
     sql: ${TABLE}.customer_id ;;
   }
 
+  dimension: registered_customer {
+    type: yesno
+    sql: CASE WHEN ${registered_customer.id} IS NULL THEN FALSE ELSE TRUE END;;
+  }
+
   dimension_group: disbursement_date {
     group_label: "Disbursement"
     type: time
@@ -136,7 +141,7 @@ view: transaction_core {
   }
 
   dimension: id {
-    type: number
+    type: string
     sql: ${TABLE}.id ;;
     primary_key: yes
     description: "The shipping details ID. A customer Vault record can contain up to 50 shipping and billing addresses, each with a unique ID."

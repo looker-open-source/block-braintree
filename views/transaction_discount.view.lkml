@@ -86,6 +86,12 @@ view: transaction_discount_core {
     value_format_name: usd
   }
 
+  measure: average_discount_amount {
+    type: average
+    sql: ${amount} ;;
+    value_format_name: usd
+  }
+
   measure: total_quantity {
     type: sum
     sql: ${quantity} ;;
