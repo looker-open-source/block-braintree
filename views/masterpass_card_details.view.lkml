@@ -7,7 +7,7 @@ view: masterpass_card_details {
 
 ###################################################
 view: masterpass_card_details_core {
-  sql_table_name: @{DATASET_NAME}.MASTERPASS_CARD_DETAILS ;;
+  sql_table_name: MASTERPASS_CARD_DETAILS ;;
 
   dimension: bin {
     type: number

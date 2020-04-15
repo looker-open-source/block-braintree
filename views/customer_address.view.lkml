@@ -7,7 +7,7 @@ view: customer_address{
 
 ###################################################
 view: customer_address_core {
-  sql_table_name: @{DATASET_NAME}.CUSTOMER_ADDRESS
+  sql_table_name: CUSTOMER_ADDRESS
     ;;
   drill_fields: [id]
 

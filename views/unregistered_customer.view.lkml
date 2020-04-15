@@ -7,7 +7,7 @@ view: unregistered_customer {
 
 ###################################################
 view: unregistered_customer_core {
-  sql_table_name: @{DATASET_NAME}.UNREGISTERED_CUSTOMER
+  sql_table_name: UNREGISTERED_CUSTOMER
     ;;
   drill_fields: [id]
 

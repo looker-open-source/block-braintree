@@ -8,7 +8,7 @@ view: subscription_status_history {
 ###################################################
 
 view: subscription_status_history_core {
-  sql_table_name: @{DATASET_NAME}.SUBSCRIPTION_STATUS_HISTORY
+  sql_table_name: SUBSCRIPTION_STATUS_HISTORY
     ;;
 
   dimension: balance {

@@ -7,7 +7,7 @@ view: venmo_details {
 
 ###################################################
 view: venmo_details_core {
-  sql_table_name: @{DATASET_NAME}.VENMO_DETAILS ;;
+  sql_table_name: VENMO_DETAILS ;;
 
   dimension: image_url {
     type: string

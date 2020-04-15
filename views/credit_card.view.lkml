@@ -7,7 +7,7 @@ view: credit_card{
 
 ###################################################
 view: credit_card_core {
-  sql_table_name: @{DATASET_NAME}.CREDIT_CARD ;;
+  sql_table_name: CREDIT_CARD ;;
 
   dimension: address_company {
     type: string

@@ -7,7 +7,7 @@ view: paypal_details {
 
 ###################################################
 view: paypal_details_core {
-  sql_table_name: @{DATASET_NAME}.PAYPAL_DETAILS ;;
+  sql_table_name: PAYPAL_DETAILS ;;
 
   dimension: authorization_id {
     type: number

@@ -8,7 +8,7 @@ view: transaction_add_on {
 ###################################################
 
 view: transaction_add_on_core {
-  sql_table_name: @{DATASET_NAME}.TRANSACTION_ADD_ON;;
+  sql_table_name: TRANSACTION_ADD_ON;;
   drill_fields: [id]
 
   dimension: id {

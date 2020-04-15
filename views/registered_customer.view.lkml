@@ -7,7 +7,7 @@ view: registered_customer {
 
 ###################################################
 view: registered_customer_core {
-  sql_table_name: @{DATASET_NAME}.REGISTERED_CUSTOMER
+  sql_table_name: REGISTERED_CUSTOMER
     ;;
   drill_fields: [id]
 

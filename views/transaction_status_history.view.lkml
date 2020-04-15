@@ -8,7 +8,7 @@ view: transaction_status_history{
 ###################################################
 
 view: transaction_status_history_core {
-  sql_table_name: @{DATASET_NAME}.TRANSACTION_STATUS_HISTORY
+  sql_table_name: TRANSACTION_STATUS_HISTORY
     ;;
 
   dimension: amount {

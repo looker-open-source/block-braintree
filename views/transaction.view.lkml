@@ -8,7 +8,7 @@ view: transaction {
 ###################################################
 
 view: transaction_core {
-  sql_table_name: @{DATASET_NAME}.TRANSACTION ;;
+  sql_table_name: TRANSACTION ;;
 
   dimension: refunded_transaction_id {
     type: number

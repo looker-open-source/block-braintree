@@ -8,7 +8,7 @@ view: subscription_add_on {
 ###################################################
 
 view: subscription_add_on_core {
-  sql_table_name: @{DATASET_NAME}.SUBSCRIPTION_ADD_ON
+  sql_table_name: SUBSCRIPTION_ADD_ON
     ;;
   drill_fields: [id]
 

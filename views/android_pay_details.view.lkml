@@ -7,7 +7,7 @@ view: android_pay_details{
 
 ###################################################
 view: android_pay_details_core {
-  sql_table_name: @{DATASET_NAME}.ANDROID_PAY_DETAILS ;;
+  sql_table_name: ANDROID_PAY_DETAILS ;;
 
   dimension: bin {
     type: number

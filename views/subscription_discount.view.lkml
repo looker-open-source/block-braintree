@@ -8,7 +8,7 @@ view: subscription_discount {
 ###################################################
 
 view: subscription_discount_core {
-  sql_table_name: @{DATASET_NAME}.SUBSCRIPTION_DISCOUNT
+  sql_table_name: SUBSCRIPTION_DISCOUNT
     ;;
   drill_fields: [id]
 

@@ -8,7 +8,7 @@ view: transaction_discount {
 ###################################################
 
 view: transaction_discount_core {
-  sql_table_name: @{DATASET_NAME}.TRANSACTION_DISCOUNT
+  sql_table_name: TRANSACTION_DISCOUNT
     ;;
   drill_fields: [id]
 

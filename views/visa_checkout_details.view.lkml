@@ -7,7 +7,7 @@ view: visa_checkout_details {
 
 ###################################################
 view: visa_checkout_details_core {
-  sql_table_name: @{DATASET_NAME}.VISA_CHECKOUT_DETAILS ;;
+  sql_table_name: VISA_CHECKOUT_DETAILS ;;
 
   dimension: bin {
     type: number

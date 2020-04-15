@@ -7,7 +7,7 @@ view: merchant_account {
 
 ###################################################
 view: merchant_account_core {
-  sql_table_name: @{DATASET_NAME}.MERCHANT_ACCOUNT ;;
+  sql_table_name: MERCHANT_ACCOUNT ;;
   drill_fields: [id]
 
   dimension: id {

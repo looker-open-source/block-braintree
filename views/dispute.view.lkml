@@ -7,7 +7,7 @@ view: dispute {
 
 ###################################################
 view: dispute_core {
-  sql_table_name: @{DATASET_NAME}.DISPUTE ;;
+  sql_table_name: DISPUTE ;;
 
   dimension: amount {
     type: number
