@@ -484,6 +484,13 @@ view: transaction_core {
     value_format_name: usd
   }
 
+  measure: total_amount_formatted {
+    type: sum
+    drill_fields: [detail*]
+    sql: CASE WHEN ${type} = 'credit' THEN (-1*${}${amount}) ELSE ${amount};;
+    value_format_name: usd
+  }
+
   measure: amount_of_decline {
     group_label: "Declined Transactions"
     label: "Declined Transaction Amount"
