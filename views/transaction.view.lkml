@@ -96,6 +96,11 @@ view: transaction_core {
     sql: ${TABLE}.customer_id ;;
   }
 
+  dimension: registered_customer {
+    type: yesno
+    sql: CASE WHEN ${registered_customer.id} IS NULL THEN FALSE ELSE TRUE END;;
+  }
+
   dimension_group: disbursement_date {
     group_label: "Disbursement"
     type: time
@@ -139,7 +144,7 @@ view: transaction_core {
   }
 
   dimension: id {
-    type: number
+    type: string
     label: "Transaction ID"
     sql: ${TABLE}.id ;;
     primary_key: yes
@@ -358,8 +363,30 @@ view: transaction_core {
     ]
   }
 
+  dimension: month_linker {
+    label: "Created Month"
+    description: "This helper dimension provides contextual links to other dashboards."
+    type: string
+    sql: ${created_month} ;;
+    link: {
+      label: "Drill into these Transactions"
+      url: "/dashboards/708?Date={{value | replace '-', '/'}} for 1 months"
+    }
+    link: {
+      label: "Drill into Declines from this Month"
+      url: "/dashboards/716?Date={{value | replace '-', '/'}} for 1 months"
+    }
+    link: {
+      label: "Drill into Disputes from this Month"
+      url: "/dashboards/715?Date={{value | replace '-', '/'}} for 1 months"
+    }
+    link: {
+      label: "Drill into At Risk Payments from this Month"
+      url: "/dashboards/716?Date={{value | replace '-', '/'}} for 1 months"
+    }
+  }
 
- dimension_group: updated {
+  dimension_group: updated {
     type: time
     sql: ${TABLE}.updated_at ;;
     timeframes: [
@@ -430,6 +457,13 @@ view: transaction_core {
     sql: ${status} IN ("SettlementDeclined","GatewayRejected","AuthorizationExpired","ProcessorDeclined","Failed") ;;
   }
 
+  dimension: amount_formatted {
+    type: number
+    hidden: yes
+    sql: CASE WHEN ${type} = 'credit' THEN (-1 * ${amount}) ELSE ${amount} END;;
+    value_format_name: usd
+  }
+
   measure: count {
     type: count
     label: "Number of Transactions"
@@ -460,6 +494,13 @@ view: transaction_core {
     sql: ${amount} ;;
     value_format_name: usd
     drill_fields: [detail*]
+  }
+
+  measure: total_amount_formatted {
+    type: sum
+    drill_fields: [detail*]
+    sql: ${amount_formatted};;
+    value_format_name: usd
   }
 
   measure: amount_of_decline {
