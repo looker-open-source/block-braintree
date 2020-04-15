@@ -44,6 +44,23 @@ view: dispute_core {
     description: "The reason the dispute was created. "
   }
 
+  dimension: reason_display {
+    type: string
+    sql:
+    CASE WHEN ${reason} = "cancelled_recurring_transaction" THEN "Canceled Recurring Transaction"
+         WHEN ${reason} = "credit_not_processed" THEN "Credit Not Processed"
+         WHEN ${reason} = "duplicate" THEN "Duplicate"
+         WHEN ${reason} = "fraud" THEN "Fraud"
+         WHEN ${reason} = "general" THEN "General"
+         WHEN ${reason} = "invalid_account" THEN "Invalid Account"
+         WHEN ${reason} = "not_recognized" THEN "Not Recognized"
+         WHEN ${reason} = "product_not_received" THEN "Product Not Received"
+         WHEN ${reason} = "product_unsatisfactory" THEN "Product Unsatisfactory"
+         WHEN ${reason} = "transaction_amount_differs" THEN "Transaction Amount Differs"
+         ELSE NULL END
+        ;;
+  }
+
   dimension_group: received {
     type: time
     sql: ${TABLE}.received_date ;;
@@ -82,6 +99,7 @@ view: dispute_core {
   }
 
   dimension: transaction_id {
+    primary_key: yes
     type: number
     hidden: yes
     sql: ${TABLE}.transaction_id ;;
@@ -117,4 +135,24 @@ view: dispute_core {
       transaction.billing_address_last_name
     ]
   }
+}
+
+
+view: dispute_ndt {
+  derived_table: {
+    explore_source: transaction {
+      column: count { field: dispute.count }
+      column: reason_label { field: dispute.reason_display }
+      filters: {
+        field: dispute.reason_display
+        value: "-NULL"
+      }
+    }
+  }
+  dimension: count {
+    hidden: yes
+    label: "Dispute Number of Disputes"
+    type: number
+  }
+  dimension: reason_display {hidden:yes}
 }

@@ -142,6 +142,7 @@ view: transaction_core {
 
   dimension: id {
     type: string
+    label: "Transaction ID"
     sql: ${TABLE}.id ;;
     primary_key: yes
     description: "The shipping details ID. A customer Vault record can contain up to 50 shipping and billing addresses, each with a unique ID."
@@ -349,12 +350,36 @@ view: transaction_core {
       month,
       quarter,
       day_of_month,
+      month_num,
       year,
       fiscal_month_num,
       fiscal_quarter,
       fiscal_quarter_of_year,
       fiscal_year
     ]
+  }
+
+  dimension: month_linker {
+    label: "Created Month"
+    description: "This helper dimension provides contextual links to other dashboards."
+    type: string
+    sql: ${created_month} ;;
+    link: {
+      label: "Drill into these Transactions"
+      url: "/dashboards/708?Date={{value | replace '-', '/'}} for 1 months"
+    }
+    link: {
+      label: "Drill into Declines from this Month"
+      url: "/dashboards/716?Date={{value | replace '-', '/'}} for 1 months"
+    }
+    link: {
+      label: "Drill into Disputes from this Month"
+      url: "/dashboards/715?Date={{value | replace '-', '/'}} for 1 months"
+    }
+    link: {
+      label: "Drill into At Risk Payments from this Month"
+      url: "/dashboards/716?Date={{value | replace '-', '/'}} for 1 months"
+    }
   }
 
   dimension_group: updated {
@@ -422,21 +447,27 @@ view: transaction_core {
           ELSE 'Other' END;;
   }
 
+  dimension: denied {
+    type: yesno
+    sql: ${status} IN ("SettlementDeclined","GatewayRejected","AuthorizationExpired","ProcessorDeclined","Failed") ;;
+  }
+
   measure: count {
     type: count
     label: "Number of Transactions"
-    drill_fields: [id, customer_id, created_date, amount]
+    drill_fields: [detail*]
     value_format_name: decimal_0
   }
 
   measure: count_declines {
     type: count
+    group_label: "Declined Transactions"
     label: "Number of Declines"
     drill_fields: [detail*]
     value_format_name: decimal_0
     filters: {
-      field: status
-      value: "SettlementDeclined,GatewayRejected,AuthorizationExpired,ProcessorDeclined,Failed"
+      field: denied
+      value: "yes"
     }
   }
 
@@ -448,24 +479,26 @@ view: transaction_core {
 
   measure: total_amount {
     type: sum
-    drill_fields: [id, customer_id, created_date, amount]
+    drill_fields: [detail*]
     sql: ${amount} ;;
     value_format_name: usd
   }
 
   measure: amount_of_decline {
+    group_label: "Declined Transactions"
+    label: "Declined Transaction Amount"
     type: sum
     sql: ${amount} ;;
     value_format_name: usd
     filters: {
-      field: status
-      value: "SettlementDeclined,GatewayRejected,AuthorizationExpired,ProcessorDeclined,Failed"
+      field: denied
+      value: "yes"
     }
   }
 
   measure: average_amount {
     label: "Average Transaction"
-    drill_fields: [id, customer_id, created_date, amount]
+    drill_fields: [detail*]
     type: average
     sql: ${amount} ;;
     value_format_name: usd
@@ -485,31 +518,32 @@ view: transaction_core {
 
   set: detail {
     fields: [
-      refunded_transaction_id,
-      shipping_address_country_name,
-      billing_address_country_name,
-      shipping_address_first_name,
-      shipping_address_last_name,
-      billing_address_first_name,
-      billing_address_last_name,
-      subscription.id,
-      merchant_account.address_last_name,
-      merchant_account.address_first_name,
-      merchant_account.last_name,
-      merchant_account.address_country_name,
+      id,
       merchant_account.id,
-      merchant_account.first_name,
-      unregistered_customer.count,
-      android_pay_details.count,
-      apple_pay_card.count,
-      masterpass_card_details.count,
-      transaction_status_history.count,
-      credit_card.count,
-      paypal_details.count,
-      dispute.count,
-      visa_checkout_details.count,
-      transaction_add_on.count,
-      venmo_details.count
+      customer_id,
+      payment_instrument_type,
+      created_date,
+      updated_date,
+      total_amount
     ]
+  }
+}
+
+# If necessary, uncomment the line below to include explore_source.
+# include: "block_braintree.model.lkml"
+
+view: transaction_ndt {
+  derived_table: {
+    explore_source: transaction {
+      column: tender_display {}
+      column: count_declines {}
+    }
+  }
+  dimension: tender_display {hidden: yes}
+  dimension: count_declines {
+    hidden: yes
+    label: "Transaction Number of Declines"
+    value_format: "#,##0"
+    type: number
   }
 }

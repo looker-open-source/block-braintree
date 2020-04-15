@@ -5,6 +5,10 @@ explore: transaction_core {
     sql_on: ${transaction.id} = ${paypal_details.transaction_id} ;;
     relationship: many_to_one
   }
+  join: transaction_ndt {
+    sql_on: ${transaction.tender_display} = ${transaction_ndt.tender_display} ;;
+    relationship: one_to_one
+  }
   join: android_pay_details {
     sql_on: ${transaction.id} = ${android_pay_details.transaction_id} ;;
     relationship: many_to_one
@@ -15,6 +19,10 @@ explore: transaction_core {
   }
   join: dispute {
     sql_on: ${transaction.id} = ${dispute.transaction_id} ;;
+    relationship: one_to_one
+  }
+  join: dispute_ndt {
+    sql_on: ${dispute.reason_display} = ${dispute_ndt.reason_display} ;;
     relationship: one_to_one
   }
   join: transaction_status_history {

@@ -12,6 +12,7 @@ view: merchant_account_core {
 
   dimension: id {
     primary_key: yes
+    label: "Merchant Account ID"
     type: number
     sql: ${TABLE}.id ;;
     description: "Specifies the ID of the sub-merchant, which can be referenced when creating transactions with service fees."
