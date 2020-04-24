@@ -1,5 +1,5 @@
 connection: "@{CONNECTION_NAME}"
-label: "💸 Braintree Block"
+label: "Braintree Block"
 
 include: "views/*.view.lkml"
 include: "*.explore.lkml"

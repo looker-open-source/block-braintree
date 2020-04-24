@@ -8,12 +8,12 @@ constant: CONFIG_PROJECT_NAME {
 }
 
 constant: CONNECTION_NAME {
-  value: "brick-layer"
+  value: "connection"
   export: override_required
 }
 
 constant: DATASET_NAME {
-  value: "braintree"
+  value: "dataset"
   export: override_required
 }
 
