@@ -22,3 +22,9 @@ constant: DATASET_NAME {
 local_dependency: {
   project: "@{CONFIG_PROJECT_NAME}"
 }
+
+visualization: {
+  id: "block-braintree-sankey"
+  label: "**B"
+  url: "https://looker-custom-viz-a.lookercdn.com/master/sankey.js"
+}
