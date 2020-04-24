@@ -420,44 +420,6 @@
     col: 8
     width: 16
     height: 12
-  - title: Declined Transaction Distribution
-    name: Declined Transaction Distribution
-    model: block_braintree
-    explore: transaction
-    type: marketplace_viz_sankey::sankey-marketplace
-    fields: [transaction.risk_data_decision, transaction.processor_authorization_type,
-      transaction.status, transaction.count]
-    filters:
-      transaction.denied: 'Yes'
-      transaction.processor_authorization_type: "-Approved"
-    sorts: [transaction.count desc]
-    limit: 500
-    column_limit: 50
-    hidden_fields: []
-    hidden_points_if_no: []
-    series_labels: {}
-    show_view_names: true
-    color_range: ["#294987", "#5a1038", "#ff947c", "#1f6b62", "#764173", "#910303",
-      "#b2947c", "#192d54", "#a31e67", "#a16154", "#0f544b", "#ffd9ba"]
-    label_type: name
-    show_null_points: true
-    custom_color_enabled: true
-    show_single_value_title: true
-    show_comparison: false
-    comparison_type: value
-    comparison_reverse_colors: false
-    show_comparison_label: true
-    enable_conditional_formatting: false
-    conditional_formatting_include_totals: false
-    conditional_formatting_include_nulls: false
-    defaults_version: 0
-    series_types: {}
-    listen:
-      Date: transaction.created_date
-    row: 43
-    col: 0
-    width: 24
-    height: 12
   - title: Declined Transactions By Type
     name: Declined Transactions By Type
     model: block_braintree
@@ -569,6 +531,44 @@
     row: 19
     col: 0
     width: 8
+    height: 12
+  - title: Declined Transaction Distribution
+    name: Declined Transaction Distribution
+    model: block_braintree
+    explore: transaction
+    type: block-braintree::block-braintree-sankey
+    fields: [transaction.risk_data_decision, transaction.processor_authorization_type,
+      transaction.status, transaction.count]
+    filters:
+      transaction.denied: 'Yes'
+      transaction.processor_authorization_type: "-Approved"
+    sorts: [transaction.count desc]
+    limit: 500
+    column_limit: 50
+    hidden_fields: []
+    hidden_points_if_no: []
+    series_labels: {}
+    show_view_names: true
+    color_range: ["#294987", "#5a1038", "#ff947c", "#1f6b62", "#764173", "#910303",
+      "#b2947c", "#192d54", "#a31e67", "#a16154", "#0f544b", "#ffd9ba"]
+    label_type: name
+    show_null_points: true
+    custom_color_enabled: true
+    show_single_value_title: true
+    show_comparison: false
+    comparison_type: value
+    comparison_reverse_colors: false
+    show_comparison_label: true
+    enable_conditional_formatting: false
+    conditional_formatting_include_totals: false
+    conditional_formatting_include_nulls: false
+    defaults_version: 0
+    series_types: {}
+    listen:
+      Date: transaction.created_date
+    row: 43
+    col: 0
+    width: 24
     height: 12
   filters:
   - name: Date
