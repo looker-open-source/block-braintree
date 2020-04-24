@@ -25,6 +25,6 @@ local_dependency: {
 
 visualization: {
   id: "block-braintree-sankey"
-  label: "**B"
+  label: ""
   url: "https://looker-custom-viz-a.lookercdn.com/master/sankey.js"
 }
