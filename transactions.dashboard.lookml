@@ -224,8 +224,8 @@
     col: 13
     width: 11
     height: 10
-  - title: Registered Vs. Unregistered Customers
-    name: Registered Vs. Unregistered Customers
+  - title: Registered Vs Unregistered Customers
+    name: Registered Vs Unregistered Customers
     model: block_braintree
     explore: transaction
     type: looker_donut_multiples
