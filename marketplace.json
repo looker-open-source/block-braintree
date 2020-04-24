@@ -1,18 +1,15 @@
 {
-  "label": "Braintree",
+  "label": "Braintree Payments",
   "category_label": "Models",
   "branding": {
     "image_uri": "https://marketplace-api.looker.com/block-icons/braintree_icon.png",
-    "tagline": ""
+    "tagline": "Bring your transaction data to life using the Braintree Block."
   },
 
   "constants": {
     "CONNECTION_NAME": {
       "label": "Connection Name",
       "value_constraint": "connection"
-    },
-    "SCHEMA_NAME": {
-      "label": "Braintree Schema Name"
     },
     "DATASET_NAME": {
       "label": "Braintree Dataset Name"
@@ -30,7 +27,7 @@
   "auxiliary_projects": [
     {
       "git_uri": "git://github.com/looker/block-braintree-config.git",
-      "git_ref": "0a117ef05a82d135f4eed631ebac95c256c784de",
+      "git_ref": "00745b7e5030c83fc2b8bff603b64d28fb08ce6b",
       "label": "Braintree Config",
       "constant_name": "CONFIG_PROJECT_NAME"
     }
