@@ -560,13 +560,15 @@ view: transaction_ndt {
     explore_source: transaction {
       column: tender_display {}
       column: count_declines {}
+      column: test { field: apple_pay_card.last4}
     }
   }
   dimension: tender_display {hidden: yes}
   dimension: count_declines {
-    hidden: yes
+    hidden: no
     label: "Transaction Number of Declines"
     value_format: "#,##0"
     type: number
   }
+  dimension: test {}
 }

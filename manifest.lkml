@@ -8,12 +8,17 @@ constant: CONFIG_PROJECT_NAME {
 }
 
 constant: CONNECTION_NAME {
-  value: "connection"
+  value: "brick-layer"
   export: override_required
 }
 
 constant: DATASET_NAME {
   value: "dataset"
+  export: override_required
+}
+
+constant: REFINED_CONSTANT {
+  value: "refined-test"
   export: override_required
 }
 
