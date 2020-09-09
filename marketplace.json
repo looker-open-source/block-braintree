@@ -16,7 +16,7 @@
     },
     "CONFIG_PROJECT_NAME": {
       "label": "Config Project Name"
-    },
+    }
   },
   "models": [
     {
@@ -30,6 +30,6 @@
       "git_ref": "027012906161cf04dbf40e2325bf94607d723ca1",
       "label": "Braintree Config Refined",
       "constant_name": "CONFIG_PROJECT_NAME"
-    },
+    }
   ]
 }
