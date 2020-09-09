@@ -17,8 +17,8 @@
     "CONFIG_PROJECT_NAME": {
       "label": "Config Project Name"
     },
-    "REFINED_CONSTANT": {
-      "label": "Refined Constant"
+    "REFINED_PROJECT": {
+      "label": "Refined Project Name"
     }
   },
   "models": [
@@ -38,7 +38,7 @@
       "git_uri": "git://github.com/looker/app-sales-config-marketplace-testing.git",
       "git_ref": "3b106a6668ce2c70315a48a43b1960a8e2894985",
       "label": "Sales Analytics Config",
-      "constant_name": "CONFIG_PROJECT_NAME"
+      "constant_name": "REFINED_PROJECT"
     }
   ]
 }

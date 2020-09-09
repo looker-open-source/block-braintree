@@ -17,8 +17,8 @@ constant: DATASET_NAME {
   export: override_required
 }
 
-constant: REFINED_CONSTANT {
-  value: "refined-test"
+constant: REFINED_PROJECT {
+  value: "testy"
   export: override_required
 }
 
