@@ -17,10 +17,6 @@ constant: DATASET_NAME {
   export: override_required
 }
 
-constant: REFINED_PROJECT {
-  value: "testy"
-  export: override_required
-}
 
 ################ Dependencies ################
 

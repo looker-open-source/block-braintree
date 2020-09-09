@@ -17,9 +17,6 @@
     "CONFIG_PROJECT_NAME": {
       "label": "Config Project Name"
     },
-    "REFINED_PROJECT": {
-      "label": "Refined Project Name"
-    }
   },
   "models": [
     {
@@ -29,16 +26,10 @@
   ],
   "auxiliary_projects": [
     {
-      "git_uri": "git://github.com/looker/block-braintree-config.git",
-      "git_ref": "00745b7e5030c83fc2b8bff603b64d28fb08ce6b",
-      "label": "Braintree Config",
+      "git_uri": "git://github.com/llooker/refined-braintree-core.git",
+      "git_ref": "027012906161cf04dbf40e2325bf94607d723ca1",
+      "label": "Braintree Config Refined",
       "constant_name": "CONFIG_PROJECT_NAME"
     },
-    {
-      "git_uri": "git://github.com/looker/app-sales-config-marketplace-testing.git",
-      "git_ref": "3b106a6668ce2c70315a48a43b1960a8e2894985",
-      "label": "Sales Analytics Config",
-      "constant_name": "REFINED_PROJECT"
-    }
   ]
 }
