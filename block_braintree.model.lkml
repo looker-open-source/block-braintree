@@ -1,17 +1,9 @@
 connection: "@{CONNECTION_NAME}"
-label: "Braintree Block"
 
-include: "views/*.view.lkml"
-include: "*.explore.lkml"
-include: "*.dashboard.lookml"
-include: "//@{CONFIG_PROJECT_NAME}/views/*.view.lkml"
-include: "//@{CONFIG_PROJECT_NAME}/*.model.lkml"
-include: "//@{CONFIG_PROJECT_NAME}/*.dashboard"
+include: "//@{CORE_PROJECT}/*.explore"
+include: "//@{CORE_PROJECT}/*.dashboard"
+include: "/views/*"
 
-explore: transaction {
-  extends: [transaction_config]
-}
-
-explore: subscription {
-  extends: [subscription_config]
-}
+explore: +subscription {}
+explore: +transaction {}
+explore: +derived {}
