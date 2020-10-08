@@ -1,6 +1,6 @@
 {
   "label": "Braintree Payments",
-  "read_only": "false"
+  "read_only": "false",
   "category_label": "Models",
   "branding": {
     "image_uri": "https://marketplace-api.looker.com/block-icons/braintree_icon.png",
