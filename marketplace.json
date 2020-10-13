@@ -1,6 +1,6 @@
 {
   "label": "Braintree Payments",
-  "editable_parent": "true",
+  "editable_parent_project": true,
   "category_label": "Models",
   "branding": {
     "image_uri": "https://marketplace-api.looker.com/block-icons/braintree_icon.png",
