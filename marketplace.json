@@ -17,7 +17,7 @@
   },
   "models": [
     {
-      "name": "block-braintree",
+      "name": "block_braintree",
       "connection_constant": "CONNECTION_NAME"
     }
   ]
