@@ -13,6 +13,9 @@
     },
     "DATASET_NAME": {
       "label": "Dataset Name"
+    },
+    "ROW_FILTER": {
+      "label": "Row Filter"
     }
   },
   "models": [
