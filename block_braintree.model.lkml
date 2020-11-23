@@ -1,5 +1,5 @@
-connection: "@{CONNECTION_NAME}"
 
+include: "//@{CORE_PROJECT}/*.model"
 include: "//@{CORE_PROJECT}/*.explore"
 include: "//@{CORE_PROJECT}/*.dashboard"
 include: "/views/*"
