@@ -16,7 +16,7 @@
     },
     "DATASET_NAME": {
       "label": "Dataset Name",
-      "default_value": "I'm a dataset",
+      "default_value": "Im a dataset",
       "required": "true"
     },
     "ROW_FILTER": {
