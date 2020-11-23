@@ -1,6 +1,8 @@
 {
   "label": "Braintree Payments",
   "editable_marketplace_project": "true",
+  "remote_uri": "https://github.com/llooker/refined-braintree-simple",
+  "remote_sha": "0356c0f0ae9e4e2558b11fe13fc3714718a32154",
   "category_label": "Models",
   "branding": {
     "image_uri": "https://marketplace-api.looker.com/block-icons/braintree_icon.png",
@@ -9,13 +11,17 @@
   "constants": {
     "CONNECTION_NAME": {
       "label": "Connection Name",
-      "value_constraint": "connection"
+      "value_constraint": "connection",
+      "required": "true"
     },
     "DATASET_NAME": {
-      "label": "Dataset Name"
+      "label": "Dataset Name",
+      "default_value": "I'm a dataset",
+      "required": "true"
     },
     "ROW_FILTER": {
-      "label": "Row Filter"
+      "label": "Row Filter",
+      "default_value": 5
     }
   },
   "models": [
