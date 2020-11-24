@@ -19,7 +19,7 @@
     },
     "ROW_FILTER": {
       "label": "Row Filter",
-      "default_value": 5
+      "default_value": "5"
     }
   },
   "models": [
