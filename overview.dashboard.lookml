@@ -1,6 +1,7 @@
 - dashboard: overview
   title: Overview
   layout: newspaper
+  preferred_viewer: dashboards-next
   elements:
   - title: Most Used Tender Types MTD
     name: Most Used Tender Types MTD

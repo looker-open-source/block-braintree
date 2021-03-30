@@ -1,6 +1,7 @@
 - dashboard: transactions
   title: Transactions
   layout: newspaper
+  preferred_viewer: dashboards-next
   elements:
   - title: Transactions
     name: Transactions

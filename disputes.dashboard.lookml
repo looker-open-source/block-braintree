@@ -1,6 +1,7 @@
 - dashboard: disputes
   title: Disputes
   layout: newspaper
+  preferred_viewer: dashboards-next
   elements:
   - title: Disputes This Week
     name: Disputes This Week

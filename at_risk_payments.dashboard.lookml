@@ -1,6 +1,7 @@
 - dashboard: at_risk_payments
   title: At Risk Payments
   layout: newspaper
+  preferred_viewer: dashboards-next
   elements:
   - title: Risk Response Over Time
     name: Risk Response Over Time

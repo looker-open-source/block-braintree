@@ -1,6 +1,7 @@
 - dashboard: declines
   title: Declines
   layout: newspaper
+  preferred_viewer: dashboards-next
   elements:
   - title: Declines By Status
     name: Declines By Status
