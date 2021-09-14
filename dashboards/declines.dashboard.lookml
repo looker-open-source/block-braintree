@@ -5,7 +5,7 @@
   elements:
   - title: Declines By Status
     name: Declines By Status
-    model: block_braintree
+    model: block_braintree_v2
     explore: transaction
     type: looker_column
     fields: [transaction.status, transaction.amount_of_decline, transaction.created_month,
@@ -104,7 +104,7 @@
     height: 19
   - title: Declined Transactions This Week
     name: Declined Transactions This Week
-    model: block_braintree
+    model: block_braintree_v2
     explore: transaction
     type: single_value
     fields: [declines_this_week, transactions_this_week, number_of_declines_last_week,
@@ -183,7 +183,7 @@
     height: 4
   - title: Declined Transaction Amount This Week
     name: Declined Transaction Amount This Week
-    model: block_braintree
+    model: block_braintree_v2
     explore: transaction
     type: single_value
     fields: [amount_of_decline_this_week, amount_of_decline_last_week]
@@ -254,7 +254,7 @@
     height: 4
   - title: Declined Transactions
     name: Declined Transactions
-    model: block_braintree
+    model: block_braintree_v2
     explore: transaction
     type: looker_grid
     fields: [transaction.updated_date, transaction.id, transaction.tender_display,
@@ -338,7 +338,7 @@
     height: 15
   - title: Frequently Declined Customers
     name: Frequently Declined Customers
-    model: block_braintree
+    model: block_braintree_v2
     explore: transaction
     type: looker_grid
     fields: [registered_customer.first_name, registered_customer.last_name, registered_customer.email,
@@ -423,7 +423,7 @@
     height: 12
   - title: Declined Transactions By Type
     name: Declined Transactions By Type
-    model: block_braintree
+    model: block_braintree_v2
     explore: transaction
     type: looker_scatter
     fields: [transaction.tender_display, transaction.count_declines, transaction_ndt.count_declines,
@@ -535,7 +535,7 @@
     height: 12
   - title: Declined Transaction Distribution
     name: Declined Transaction Distribution
-    model: block_braintree
+    model: block_braintree_v2
     explore: transaction
     type: block-braintree::block-braintree-sankey
     fields: [transaction.risk_data_decision, transaction.processor_authorization_type,

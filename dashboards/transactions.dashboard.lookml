@@ -5,7 +5,7 @@
   elements:
   - title: Transactions
     name: Transactions
-    model: block_braintree
+    model: block_braintree_v2
     explore: transaction
     type: single_value
     fields: [transaction.count]
@@ -29,7 +29,7 @@
     height: 3
   - title: Transactions Over Time
     name: Transactions Over Time
-    model: block_braintree
+    model: block_braintree_v2
     explore: transaction
     type: looker_column
     fields: [transaction.total_amount, transaction.created_week, transaction.tender_display]
@@ -102,7 +102,7 @@
     height: 9
   - title: Average Amount
     name: Average Amount
-    model: block_braintree
+    model: block_braintree_v2
     explore: transaction
     type: single_value
     fields: [transaction.average_amount]
@@ -127,7 +127,7 @@
     height: 3
   - title: Registered Customers
     name: Registered Customers
-    model: block_braintree
+    model: block_braintree_v2
     explore: transaction
     type: single_value
     fields: [registered_customer.count]
@@ -152,7 +152,7 @@
     height: 3
   - title: Add On Averages and Quantities
     name: Add On Averages and Quantities
-    model: block_braintree
+    model: block_braintree_v2
     explore: transaction
     type: looker_column
     fields: [transaction_add_on.average_add_on_amount, transaction_add_on.average_add_on_quantity,
@@ -227,7 +227,7 @@
     height: 10
   - title: Registered Vs Unregistered Customers
     name: Registered Vs Unregistered Customers
-    model: block_braintree
+    model: block_braintree_v2
     explore: transaction
     type: looker_donut_multiples
     fields: [transaction.created_month, transaction.count, transaction.registered_customer]
@@ -301,7 +301,7 @@
     height: 7
   - title: Avg Amount by Tender Type
     name: Avg Amount by Tender Type
-    model: block_braintree
+    model: block_braintree_v2
     explore: transaction
     type: looker_pie
     fields: [transaction.tender_display, transaction.average_amount]
@@ -375,7 +375,7 @@
     height: 7
   - title: Total Amount By Day of Week and Hour of Day
     name: Total Amount By Day of Week and Hour of Day
-    model: block_braintree
+    model: block_braintree_v2
     explore: transaction
     type: looker_grid
     fields: [transaction.created_hour_of_day, transaction.created_day_of_week, transaction.total_amount]
@@ -449,7 +449,7 @@
     height: 10
   - title: All Transactions
     name: All Transactions
-    model: block_braintree
+    model: block_braintree_v2
     explore: transaction
     type: looker_grid
     fields: [transaction.id, transaction.status, transaction.type, transaction.created_date,
@@ -533,7 +533,7 @@
     default_value: 3 months
     allow_multiple_values: true
     required: false
-    model: block_braintree
+    model: block_braintree_v2
     explore: transaction
     listens_to_filters: []
     field: transaction.created_date

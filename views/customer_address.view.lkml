@@ -1,12 +1,4 @@
-include: "//@{CONFIG_PROJECT_NAME}/views/customer_address.view.lkml"
-
-
 view: customer_address{
-  extends: [customer_address_config]
-}
-
-###################################################
-view: customer_address_core {
   sql_table_name: CUSTOMER_ADDRESS
     ;;
   drill_fields: [id]

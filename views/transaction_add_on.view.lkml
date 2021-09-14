@@ -1,13 +1,4 @@
-include: "//@{CONFIG_PROJECT_NAME}/views/transaction_add_on.view.lkml"
-
-
 view: transaction_add_on {
-  extends: [transaction_add_on_config]
-}
-
-###################################################
-
-view: transaction_add_on_core {
   sql_table_name: TRANSACTION_ADD_ON;;
   drill_fields: [id]
 

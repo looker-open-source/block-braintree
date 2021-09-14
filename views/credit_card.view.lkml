@@ -1,12 +1,4 @@
-include: "//@{CONFIG_PROJECT_NAME}/views/credit_card.view.lkml"
-
-
 view: credit_card{
-  extends: [credit_card_config]
-}
-
-###################################################
-view: credit_card_core {
   sql_table_name: CREDIT_CARD ;;
 
   dimension: address_company {

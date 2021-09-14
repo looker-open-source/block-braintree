@@ -1,13 +1,4 @@
-include: "//@{CONFIG_PROJECT_NAME}/views/subscription_status_history.view.lkml"
-
-
 view: subscription_status_history {
-  extends: [subscription_status_history_config]
-}
-
-###################################################
-
-view: subscription_status_history_core {
   sql_table_name: SUBSCRIPTION_STATUS_HISTORY
     ;;
 

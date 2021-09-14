@@ -1,13 +1,4 @@
-include: "//@{CONFIG_PROJECT_NAME}/views/transaction_status_history.view.lkml"
-
-
 view: transaction_status_history{
-  extends: [transaction_status_history_config]
-}
-
-###################################################
-
-view: transaction_status_history_core {
   sql_table_name: TRANSACTION_STATUS_HISTORY
     ;;
 

@@ -5,7 +5,7 @@
   elements:
   - title: Most Used Tender Types MTD
     name: Most Used Tender Types MTD
-    model: block_braintree
+    model: block_braintree_v2
     explore: transaction
     type: looker_pie
     fields: [transaction.tender_display, transaction.count]
@@ -73,7 +73,7 @@
     height: 9
   - title: Average Transaction by Tender Type
     name: Average Transaction by Tender Type
-    model: block_braintree
+    model: block_braintree_v2
     explore: transaction
     type: looker_bar
     fields: [transaction.average_amount, transaction.tender_display]
@@ -132,7 +132,7 @@
     height: 9
   - title: Average Transaction by Month
     name: Average Transaction by Month
-    model: block_braintree
+    model: block_braintree_v2
     explore: transaction
     type: looker_column
     fields: [transaction.average_amount, transaction.month_linker]
@@ -187,7 +187,7 @@
     height: 9
   - title: Global Transactions Heatmap
     name: Global Transactions Heatmap
-    model: block_braintree
+    model: block_braintree_v2
     explore: transaction
     type: looker_map
     fields: [transaction.count, transaction.shipping_address_country_name]
@@ -258,7 +258,7 @@
     height: 9
   - title: Tender Monthly Breakdown
     name: Tender Monthly Breakdown
-    model: block_braintree
+    model: block_braintree_v2
     explore: transaction
     type: looker_donut_multiples
     fields: [transaction.total_amount, transaction.tender_display, transaction.month_linker]
@@ -318,7 +318,7 @@
     height: 9
   - title: Historical Transactions
     name: Historical Transactions
-    model: block_braintree
+    model: block_braintree_v2
     explore: transaction
     type: looker_line
     fields: [transaction.total_amount, transaction.count, transaction.month_linker]
@@ -375,7 +375,7 @@
     height: 8
   - title: 30 Day Credit/Debit Waterfall
     name: 30 Day Credit/Debit Waterfall
-    model: block_braintree
+    model: block_braintree_v2
     explore: transaction
     type: looker_waterfall
     fields: [transaction.type, transaction.total_amount, transaction.created_date]
@@ -426,7 +426,7 @@
     height: 8
   - title: Subscriptions MTD
     name: Subscriptions MTD
-    model: block_braintree
+    model: block_braintree_v2
     explore: transaction
     type: single_value
     fields: [subscription.created_month, subscriptions]
@@ -487,7 +487,7 @@
     height: 4
   - title: New Tile
     name: New Tile
-    model: block_braintree
+    model: block_braintree_v2
     explore: transaction
     type: single_value
     fields: [transaction_amount, transaction.created_month]
@@ -548,7 +548,7 @@
     height: 4
   - title: New Tile
     name: New Tile (2)
-    model: block_braintree
+    model: block_braintree_v2
     explore: transaction
     type: single_value
     fields: [number_of_transactions, transaction.created_month]
@@ -609,7 +609,7 @@
     height: 4
   - title: New Tile
     name: New Tile (3)
-    model: block_braintree
+    model: block_braintree_v2
     explore: transaction
     type: single_value
     fields: [disputes, transaction.created_month]
