@@ -1,12 +1,4 @@
-include: "//@{CONFIG_PROJECT_NAME}/views/apple_pay_card.view.lkml"
-
-
 view: apple_pay_card{
-  extends: [apple_pay_card_config]
-}
-
-###################################################
-view: apple_pay_card_core {
   sql_table_name: APPLE_PAY_CARD ;;
 
   dimension: card_type {

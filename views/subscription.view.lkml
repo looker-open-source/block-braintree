@@ -1,13 +1,4 @@
-include: "//@{CONFIG_PROJECT_NAME}/views/subscription.view.lkml"
-
-
 view: subscription {
-  extends: [subscription_config]
-}
-
-###################################################
-
-view: subscription_core {
   sql_table_name: SUBSCRIPTION ;;
   drill_fields: [id]
 

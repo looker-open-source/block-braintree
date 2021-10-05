@@ -13,23 +13,12 @@
     },
     "DATASET_NAME": {
       "label": "Braintree Dataset Name"
-    },
-    "CONFIG_PROJECT_NAME": {
-      "label": "Config Project Name"
     }
   },
   "models": [
     {
-      "name": "block_braintree",
+      "name": "block_braintree_v2",
       "connection_constant": "CONNECTION_NAME"
-    }
-  ],
-  "auxiliary_projects": [
-    {
-      "git_uri": "git://github.com/looker/block-braintree-config.git",
-      "git_ref": "00745b7e5030c83fc2b8bff603b64d28fb08ce6b",
-      "label": "Braintree Config",
-      "constant_name": "CONFIG_PROJECT_NAME"
     }
   ]
 }

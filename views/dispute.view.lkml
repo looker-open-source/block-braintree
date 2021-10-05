@@ -1,12 +1,4 @@
-include: "//@{CONFIG_PROJECT_NAME}/views/dispute.view.lkml"
-
-
 view: dispute {
-  extends: [dispute_config]
-}
-
-###################################################
-view: dispute_core {
   sql_table_name: DISPUTE ;;
 
   dimension: amount {

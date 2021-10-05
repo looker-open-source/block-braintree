@@ -1,12 +1,4 @@
-include: "//@{CONFIG_PROJECT_NAME}/views/venmo_details.view.lkml"
-
-
 view: venmo_details {
-  extends: [venmo_details_config]
-}
-
-###################################################
-view: venmo_details_core {
   sql_table_name: VENMO_DETAILS ;;
 
   dimension: image_url {

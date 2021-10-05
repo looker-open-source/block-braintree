@@ -1,13 +1,4 @@
-include: "//@{CONFIG_PROJECT_NAME}/views/transaction.view.lkml"
-
-
 view: transaction {
-  extends: [transaction_config]
-}
-
-###################################################
-
-view: transaction_core {
   sql_table_name: TRANSACTION ;;
 
   dimension: refunded_transaction_id {
@@ -553,7 +544,7 @@ view: transaction_core {
 }
 
 # If necessary, uncomment the line below to include explore_source.
-# include: "block_braintree.model.lkml"
+# include: "block_braintree_v2.model.lkml"
 
 view: transaction_ndt {
   derived_table: {

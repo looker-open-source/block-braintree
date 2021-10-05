@@ -1,13 +1,4 @@
-include: "//@{CONFIG_PROJECT_NAME}/views/transaction_discount.view.lkml"
-
-
 view: transaction_discount {
-  extends: [transaction_discount_config]
-}
-
-###################################################
-
-view: transaction_discount_core {
   sql_table_name: TRANSACTION_DISCOUNT
     ;;
   drill_fields: [id]

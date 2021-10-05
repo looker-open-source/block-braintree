@@ -5,7 +5,7 @@
   elements:
   - title: Disputes This Week
     name: Disputes This Week
-    model: block_braintree
+    model: block_braintree_v2
     explore: transaction
     type: single_value
     fields: [disputes_this_week, disputes_last_week]
@@ -66,7 +66,7 @@
     height: 4
   - title: Dispute Acceptance Rate
     name: Dispute Acceptance Rate
-    model: block_braintree
+    model: block_braintree_v2
     explore: transaction
     type: single_value
     fields: [dispute.count, accepted_disputes, accepted_amount]
@@ -149,7 +149,7 @@
     height: 4
   - title: Disputes By Type
     name: Disputes By Type
-    model: block_braintree
+    model: block_braintree_v2
     explore: transaction
     type: looker_column
     fields: [dispute.total_dispute_amount, dispute.count, dispute.opened_month, dispute.kind]
@@ -236,7 +236,7 @@
     height: 17
   - title: Open Disputes
     name: Open Disputes
-    model: block_braintree
+    model: block_braintree_v2
     explore: transaction
     type: looker_grid
     fields: [dispute.reason, dispute.opened_date, dispute.kind, transaction.id, registered_customer.email,
@@ -335,7 +335,7 @@
     height: 13
   - title: Disputes in Need of Reply
     name: Disputes in Need of Reply
-    model: block_braintree
+    model: block_braintree_v2
     explore: transaction
     type: looker_grid
     fields: [dispute.days_to_reply, dispute.reason, transaction.id, dispute.opened_date,
@@ -416,7 +416,7 @@
     height: 14
   - title: Accepted Disputes By Reason
     name: Accepted Disputes By Reason
-    model: block_braintree
+    model: block_braintree_v2
     explore: transaction
     type: looker_scatter
     fields: [dispute_ndt.count, dispute.count, accepted_disputes, accepted_amount,

@@ -1,12 +1,4 @@
-include: "//@{CONFIG_PROJECT_NAME}/views/paypal_details.view.lkml"
-
-
 view: paypal_details {
-  extends: [paypal_details_config]
-}
-
-###################################################
-view: paypal_details_core {
   sql_table_name: PAYPAL_DETAILS ;;
 
   dimension: authorization_id {

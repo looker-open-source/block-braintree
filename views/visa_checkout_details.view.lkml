@@ -1,12 +1,4 @@
-include: "//@{CONFIG_PROJECT_NAME}/views/visa_checkout_details.view.lkml"
-
-
 view: visa_checkout_details {
-  extends: [visa_checkout_details_config]
-}
-
-###################################################
-view: visa_checkout_details_core {
   sql_table_name: VISA_CHECKOUT_DETAILS ;;
 
   dimension: bin {

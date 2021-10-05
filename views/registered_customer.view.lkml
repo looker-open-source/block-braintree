@@ -1,12 +1,4 @@
-include: "//@{CONFIG_PROJECT_NAME}/views/registered_customer.view.lkml"
-
-
 view: registered_customer {
-  extends: [registered_customer_config]
-}
-
-###################################################
-view: registered_customer_core {
   sql_table_name: REGISTERED_CUSTOMER
     ;;
   drill_fields: [id]
